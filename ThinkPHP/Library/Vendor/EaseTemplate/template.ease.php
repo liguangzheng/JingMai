@@ -11,16 +11,16 @@
 
 // 引入核心文件
 if (is_file ( dirname ( __FILE__ ) . '/template.core.php' )) {
-	include dirname ( __FILE__ ) . '/template.core.php';
+    include dirname ( __FILE__ ) . '/template.core.php';
 } else {
-	die ( 'Sorry. Not load core file.' );
+    die ( 'Sorry. Not load core file.' );
 }
 class template extends ETCore {
-	
-	/**
-	 * 声明模板用法
-	 */
-	function template($set = array(
+    
+    /**
+     * 声明模板用法
+     */
+    function template($set = array(
 				'ID'		 =>'1',					//缓存ID
 				'TplType'	 =>'htm',				//模板格式
 				'CacheDir'	 =>'cache',				//缓存目录
@@ -31,7 +31,7 @@ class template extends ETCore {
 				'Copyright'	 =>'off' ,				//版权保护
 				'MemCache'	 =>'' ,					//Memcache服务器地址例如:127.0.0.1:11211
 			)) {
-		parent::ETCoreStart ( $set );
-	}
+        parent::ETCoreStart ( $set );
+    }
 }
 ?>

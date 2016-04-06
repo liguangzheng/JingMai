@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户</title>
+</head>
+<body>
+	<div class="container">
+		<button type="button">
+			<a href="{:U('index',array('t'=>'Default'))}"></a>默认主题
+		</button>
+		<button type="button">
+			<a href="{:U('index',array('t'=>'Blue'))}"></a>蓝色主题
+		</button>
+		<table>
+			<tr>
+				<td>用户姓名</td>
+				<td>{$username}</td>
+			</tr>
+			<tr>
+				<td>用户年龄</td>
+				<td>{$userage}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

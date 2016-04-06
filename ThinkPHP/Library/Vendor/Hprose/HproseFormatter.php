@@ -25,16 +25,16 @@ require_once ('HproseIOStream.php');
 require_once ('HproseReader.php');
 require_once ('HproseWriter.php');
 class HproseFormatter {
-	public static function serialize(&$var, $simple = false) {
-		$stream = new HproseStringStream ();
-		$hproseWriter = ($simple ? new HproseSimpleWriter ( $stream ) : new HproseWriter ( $stream ));
-		$hproseWriter->serialize ( $var );
-		return $stream->toString ();
-	}
-	public static function &unserialize($data, $simple = false) {
-		$stream = new HproseStringStream ( $data );
-		$hproseReader = ($simple ? new HproseSimpleReader ( $stream ) : new HproseReader ( $stream ));
-		return $hproseReader->unserialize ();
-	}
+    public static function serialize(&$var, $simple = false) {
+        $stream = new HproseStringStream ();
+        $hproseWriter = ($simple ? new HproseSimpleWriter ( $stream ) : new HproseWriter ( $stream ));
+        $hproseWriter->serialize ( $var );
+        return $stream->toString ();
+    }
+    public static function &unserialize($data, $simple = false) {
+        $stream = new HproseStringStream ( $data );
+        $hproseReader = ($simple ? new HproseSimpleReader ( $stream ) : new HproseReader ( $stream ));
+        return $hproseReader->unserialize ();
+    }
 }
 ?>

@@ -13,16 +13,16 @@ include ('../Spyc.php');
 $array [] = 'Sequence item';
 $array ['The Key'] = 'Mapped value';
 $array [] = array (
-		'A sequence',
-		'of a sequence' 
+        'A sequence',
+        'of a sequence' 
 );
 $array [] = array (
-		'first' => 'A sequence',
-		'second' => 'of mapped values' 
+        'first' => 'A sequence',
+        'second' => 'of mapped values' 
 );
 $array ['Mapped'] = array (
-		'A sequence',
-		'which is mapped' 
+        'A sequence',
+        'which is mapped' 
 );
 $array ['A Note'] = 'What if your text is too long?';
 $array ['Another Note'] = 'If that is the case, the dumper will probably fold your text by using a block.  Kinda like this.';

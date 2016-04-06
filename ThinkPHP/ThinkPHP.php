@@ -18,9 +18,9 @@ $GLOBALS ['_beginTime'] = microtime ( TRUE );
 // 记录内存初始使用
 define ( 'MEMORY_LIMIT_ON', function_exists ( 'memory_get_usage' ) );
 if (MEMORY_LIMIT_ON)
-	$GLOBALS ['_startUseMems'] = memory_get_usage ();
-	
-	// 版本信息
+    $GLOBALS ['_startUseMems'] = memory_get_usage ();
+    
+    // 版本信息
 const THINK_VERSION = '3.2.3';
 
 // URL 模式定义
@@ -28,7 +28,7 @@ const URL_COMMON = 0; // 普通模式
 const URL_PATHINFO = 1; // PATHINFO模式
 const URL_REWRITE = 2; // REWRITE模式
 const URL_COMPAT = 3; // 兼容模式
-                               
+                      
 // 类文件后缀
 const EXT = '.class.php';
 
@@ -39,11 +39,11 @@ defined ( 'APP_STATUS' ) or define ( 'APP_STATUS', '' ); // 应用状态 加载�
 defined ( 'APP_DEBUG' ) or define ( 'APP_DEBUG', false ); // 是否调试模式
 
 if (function_exists ( 'saeAutoLoader' )) { // 自动识别SAE环境
-	defined ( 'APP_MODE' ) or define ( 'APP_MODE', 'sae' );
-	defined ( 'STORAGE_TYPE' ) or define ( 'STORAGE_TYPE', 'Sae' );
+    defined ( 'APP_MODE' ) or define ( 'APP_MODE', 'sae' );
+    defined ( 'STORAGE_TYPE' ) or define ( 'STORAGE_TYPE', 'Sae' );
 } else {
-	defined ( 'APP_MODE' ) or define ( 'APP_MODE', 'common' ); // 应用模式 默认为普通模式
-	defined ( 'STORAGE_TYPE' ) or define ( 'STORAGE_TYPE', 'File' ); // 存储类型 默认为File
+    defined ( 'APP_MODE' ) or define ( 'APP_MODE', 'common' ); // 应用模式 默认为普通模式
+    defined ( 'STORAGE_TYPE' ) or define ( 'STORAGE_TYPE', 'File' ); // 存储类型 默认为File
 }
 
 defined ( 'RUNTIME_PATH' ) or define ( 'RUNTIME_PATH', APP_PATH . 'Runtime/' ); // 系统运行时目录
@@ -66,30 +66,30 @@ defined ( 'ADDON_PATH' ) or define ( 'ADDON_PATH', APP_PATH . 'Addon' );
 
 // 系统信息
 if (version_compare ( PHP_VERSION, '5.4.0', '<' )) {
-	ini_set ( 'magic_quotes_runtime', 0 );
-	define ( 'MAGIC_QUOTES_GPC', get_magic_quotes_gpc () ? true : false );
+    ini_set ( 'magic_quotes_runtime', 0 );
+    define ( 'MAGIC_QUOTES_GPC', get_magic_quotes_gpc () ? true : false );
 } else {
-	define ( 'MAGIC_QUOTES_GPC', false );
+    define ( 'MAGIC_QUOTES_GPC', false );
 }
 define ( 'IS_CGI', (0 === strpos ( PHP_SAPI, 'cgi' ) || false !== strpos ( PHP_SAPI, 'fcgi' )) ? 1 : 0 );
 define ( 'IS_WIN', strstr ( PHP_OS, 'WIN' ) ? 1 : 0 );
 define ( 'IS_CLI', PHP_SAPI == 'cli' ? 1 : 0 );
 
 if (! IS_CLI) {
-	// 当前文件名
-	if (! defined ( '_PHP_FILE_' )) {
-		if (IS_CGI) {
-			// CGI/FASTCGI模式下
-			$_temp = explode ( '.php', $_SERVER ['PHP_SELF'] );
-			define ( '_PHP_FILE_', rtrim ( str_replace ( $_SERVER ['HTTP_HOST'], '', $_temp [0] . '.php' ), '/' ) );
-		} else {
-			define ( '_PHP_FILE_', rtrim ( $_SERVER ['SCRIPT_NAME'], '/' ) );
-		}
-	}
-	if (! defined ( '__ROOT__' )) {
-		$_root = rtrim ( dirname ( _PHP_FILE_ ), '/' );
-		define ( '__ROOT__', (($_root == '/' || $_root == '\\') ? '' : $_root) );
-	}
+    // 当前文件名
+    if (! defined ( '_PHP_FILE_' )) {
+        if (IS_CGI) {
+            // CGI/FASTCGI模式下
+            $_temp = explode ( '.php', $_SERVER ['PHP_SELF'] );
+            define ( '_PHP_FILE_', rtrim ( str_replace ( $_SERVER ['HTTP_HOST'], '', $_temp [0] . '.php' ), '/' ) );
+        } else {
+            define ( '_PHP_FILE_', rtrim ( $_SERVER ['SCRIPT_NAME'], '/' ) );
+        }
+    }
+    if (! defined ( '__ROOT__' )) {
+        $_root = rtrim ( dirname ( _PHP_FILE_ ), '/' );
+        define ( '__ROOT__', (($_root == '/' || $_root == '\\') ? '' : $_root) );
+    }
 }
 
 // 加载核心Think类
